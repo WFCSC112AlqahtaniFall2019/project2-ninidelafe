@@ -31,15 +31,22 @@ int main() {
     vector<int> t(length);  // temporary workspace
 
     // unit test for merge
-    vector<int> unitTest = {23, 12, 61, 3}; //unit test vector to be sorted
+    //states that a unit test is occurring, with the numbers being tested, and the expected output
+    cout<< "Performing a unit Test with the vector {12, 23, 3, 61}. I am expecting the output to be: 3 12 23 61."<<endl;
+    vector<int> unitTest = {12, 23, 3, 61}; //unit test vector to be sorted
     vector<int> unitTestTemp(4); //unit test temporary workspace
 
-    mergeSort(unitTest, unitTestTemp, 0, 3);
-
+    mergeSortedLists(unitTest, unitTestTemp, 0, 1, 3);
     //testing the unitTest array
     for(int i = 1; i < unitTest.size() - 1; i++) {
         assert(unitTest.at(i-1) <= unitTest.at(i));
     }
+    //prints the output of the unit test after it has gone through mergeSortedLists
+    cout << "The unit test of mergeSortedList prints: " << endl;
+    for(int i = 0; i < unitTest.size(); i++) {
+        cout << unitTest.at(i) << '\t';
+    }
+    cout<<endl<<endl;
 
     // initializes and prints input values that are randomly selected
     cout << "Unsorted Values:" << endl;
